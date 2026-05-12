@@ -20,8 +20,8 @@
             $exmneClass = (int)($selExmneeData['exmne_class_id']);
             $subjectsOffered = $conn->query("SELECT COUNT(*) as cnt FROM course_tbl")->fetch(PDO::FETCH_ASSOC);
             
-            // Filter by class and status
-            $stmtAvailCount = $conn->prepare("SELECT COUNT(*) as cnt FROM exam_tbl WHERE ex_class_id = ? AND ex_status = 'started'");
+            // Filter by class
+            $stmtAvailCount = $conn->prepare("SELECT COUNT(*) as cnt FROM exam_tbl WHERE ex_class_id = ?");
             $stmtAvailCount->execute([$exmneClass]);
             $availableExams = $stmtAvailCount->fetch(PDO::FETCH_ASSOC);
 
@@ -106,7 +106,7 @@
                         </thead>
                         <tbody>
                         <?php
-                            $stmtAvail  = $conn->prepare("SELECT * FROM exam_tbl WHERE ex_class_id = ? AND ex_status = 'started' ORDER BY ex_id DESC");
+                            $stmtAvail  = $conn->prepare("SELECT * FROM exam_tbl WHERE ex_class_id = ? ORDER BY ex_id DESC");
                             $stmtAvail->execute([$exmneClass]);
                             $selAvailExams = $stmtAvail;
                             if ($selAvailExams->rowCount() > 0) {

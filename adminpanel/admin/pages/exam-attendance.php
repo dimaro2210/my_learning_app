@@ -37,6 +37,7 @@
                                 <th>Percentage</th>
                                 <th>Date/Time Taken</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,18 +55,23 @@
                                         $total = $selExam['ex_questlimit_display'];
                                         $pct = ($total > 0) ? number_format(($correct / $total) * 100, 1) : 0;
                             ?>
-                            <tr>
-                                <td><div class="font-weight-bold text-primary"><?php echo strtoupper($row['exmne_fullname']); ?></div></td>
-                                <td><?php echo strtoupper($row['exmne_gender']); ?></td>
-                                <td><span class="badge badge-info"><?php echo $correct; ?> / <?php echo $total; ?></span></td>
-                                <td>
-                                    <div class="font-weight-bold <?php echo $pct >= 50 ? 'text-success' : 'text-danger'; ?>">
-                                        <?php echo $pct; ?>%
-                                    </div>
-                                </td>
-                                <td><?php echo $row['date_taken'] ? date("M d, Y - h:i A", strtotime($row['date_taken'])) : 'N/A'; ?></td>
-                                <td><span class="badge badge-success">COMPLETED</span></td>
-                            </tr>
+                             <tr>
+                                 <td><div class="font-weight-bold text-primary"><?php echo strtoupper($row['exmne_fullname']); ?></div></td>
+                                 <td><?php echo strtoupper($row['exmne_gender']); ?></td>
+                                 <td><span class="badge badge-info"><?php echo $correct; ?> / <?php echo $total; ?></span></td>
+                                 <td>
+                                     <div class="font-weight-bold <?php echo $pct >= 50 ? 'text-success' : 'text-danger'; ?>">
+                                         <?php echo $pct; ?>%
+                                     </div>
+                                 </td>
+                                 <td><?php echo $row['date_taken'] ? date("M d, Y - h:i A", strtotime($row['date_taken'])) : 'N/A'; ?></td>
+                                 <td><span class="badge badge-success">COMPLETED</span></td>
+                                 <td>
+                                     <a href="home.php?page=review-result&id=<?php echo $exId; ?>&mne=<?php echo $exmneId; ?>" class="btn btn-primary btn-sm">
+                                         <i class="fa fa-eye"></i> Review
+                                     </a>
+                                 </td>
+                             </tr>
                             <?php }
                                 } else { ?>
                             <tr>

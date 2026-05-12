@@ -130,41 +130,51 @@
                     </div>
                 </div>
 
-                <!-- Recent Feedbacks -->
+                <!-- Recent Submissions -->
                 <div class="col-md-6">
                     <div class="main-card mb-3 card">
                         <div class="card-header">
-                            <i class="fa fa-comments-o" style="margin-right:8px;color:var(--primary);"></i>
-                            Recent Feedbacks
+                            <i class="fa fa-file-text-o" style="margin-right:8px;color:var(--primary);"></i>
+                            Recent Exam Submissions
                         </div>
                         <div class="table-responsive">
                             <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>From</th>
-                                        <th>Feedback</th>
-                                        <th class="text-center">Date</th>
+                                        <th>Student</th>
+                                        <th>Exam</th>
+                                        <th class="text-center">Score</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php 
-                                    $selRecentFb = $conn->query("SELECT * FROM feedbacks_tbl ORDER BY fb_id DESC LIMIT 5");
-                                    if($selRecentFb->rowCount() > 0) {
-                                        while($fbRow = $selRecentFb->fetch(PDO::FETCH_ASSOC)) {
+                                    $selRecentSub = $conn->query("SELECT ea.*, et.exmne_fullname, ex.ex_title, ex.ex_questlimit_display FROM exam_attempt ea INNER JOIN examinee_tbl et ON ea.exmne_id = et.exmne_id INNER JOIN exam_tbl ex ON ea.exam_id = ex.ex_id ORDER BY ea.examat_id DESC LIMIT 5");
+                                    if($selRecentSub->rowCount() > 0) {
+                                        while($subRow = $selRecentSub->fetch(PDO::FETCH_ASSOC)) {
+                                            $exmneId = $subRow['exmne_id'];
+                                            $examId = $subRow['exam_id'];
+                                            
+                                            // Calculate score
+                                            $stmtCorr = $conn->prepare("SELECT COUNT(*) as cnt FROM exam_question_tbl eqt INNER JOIN exam_answers eans ON eqt.eqt_id = eans.quest_id AND eqt.exam_answer = eans.exans_answer WHERE eans.axmne_id = ? AND eans.exam_id = ?");
+                                            $stmtCorr->execute([$exmneId, $examId]);
+                                            $correct = $stmtCorr->fetch(PDO::FETCH_ASSOC)['cnt'];
+                                            $total = $subRow['ex_questlimit_display'];
                                 ?>
                                     <tr>
-                                        <td><b><?php echo ($fbRow['fb_exmne_as'] != '') ? $fbRow['fb_exmne_as'] : 'Anonymous'; ?></b></td>
-                                        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><?php echo $fbRow['fb_feedbacks']; ?></td>
-                                        <td class="text-center"><span style="font-size:11px;color:var(--text-muted);"><?php echo $fbRow['fb_date']; ?></span></td>
+                                        <td><b><?php echo strtoupper($subRow['exmne_fullname']); ?></b></td>
+                                        <td><?php echo $subRow['ex_title']; ?></td>
+                                        <td class="text-center">
+                                            <span class="badge badge-info"><?php echo $correct; ?> / <?php echo $total; ?></span>
+                                        </td>
                                     </tr>
                                 <?php } } else { ?>
-                                    <tr><td colspan="3" class="text-center p-3 text-muted">No feedbacks yet.</td></tr>
+                                    <tr><td colspan="3" class="text-center p-3 text-muted">No submissions yet.</td></tr>
                                 <?php } ?>
                                 </tbody>
                             </table>
                         </div>
                         <div class="d-block text-center card-footer">
-                            <a href="home.php?page=feedbacks" class="btn btn-sm btn-primary">View All Feedbacks</a>
+                            <a href="home.php?page=examinee-result" class="btn btn-sm btn-primary">View All Results</a>
                         </div>
                     </div>
                 </div>

@@ -53,6 +53,9 @@ if(!isset($_SESSION['admin']['adminnakalogin']) == true) header("location:index.
         case 'exam-attendance':
             include("pages/exam-attendance.php");
             break;
+        case 'review-result':
+            include("pages/review-result.php");
+            break;
         case 'submitted-results':
             if(file_exists("pages/submitted-results.php")) {
                 include("pages/submitted-results.php");

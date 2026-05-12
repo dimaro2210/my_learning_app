@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - My Learning CBT Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #f1c40f;
+            --secondary: #2c3e50;
+            --dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 10%;
+            text-align: center;
+            background: linear-gradient(to bottom, #1e293b, var(--dark));
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 80px 10%;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .content-block {
+            margin-bottom: 50px;
+        }
+
+        .content-block h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Step List */
+        .steps {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .steps li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 25px;
+        }
+
+        .steps li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .steps li::after {
+            content: attr(data-step);
+            position: absolute;
+            left: 7px;
+            top: 4px;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            section { padding: 40px 5%; }
+            nav a { margin: 0 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Platform User Guide</h1>
+        <p>A Comprehensive Walkthrough of the My Learning Management System</p>
+    </header>
+
+    <nav>
+        <a href="#access">Access</a>
+        <a href="#admin">Admin Portal</a>
+        <a href="#student">Student Portal</a>
+        <a href="#results">Results</a>
+    </nav>
+
+    <!-- Section 1: System Access -->
+    <section id="access">
+        <h2 class="section-title"><i data-lucide="log-in"></i> Getting Started</h2>
+        <div class="content-block">
+            <p>The platform is split into two distinct portals to ensure security and streamlined workflows.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Admin Login</h4>
+                    <p>Accessed via the secure admin directory. Requires administrative credentials. The login page features a professional layout synchronized with the school's branding.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Student Login</h4>
+                    <p>Students login using their unique <span class="highlight">Roll Number</span> or ID. This ensures that every attempt is tied to a specific academic record.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Admin Portal -->
+    <section id="admin" style="background: rgba(255,255,255,0.02);">
+        <h2 class="section-title"><i data-lucide="shield-check"></i> The Administrative Powerhouse</h2>
+        
+        <div class="content-block">
+            <h3><i data-lucide="layout"></i> 1. The Admin Dashboard</h3>
+            <p>Upon logging in, administrators are greeted with a high-level overview of the school's activity:</p>
+            <ul class="steps">
+                <li data-step="1"><b>Live Stats:</b> View total subjects, exams, students, and feedback at a glance.</li>
+                <li data-step="2"><b>Recent Students:</b> A quick list of the latest registered students.</li>
+                <li data-step="3"><b>Recent Submissions:</b> Real-time tracking of students finishing their exams, showing their names and instant scores.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h3><i data-lucide="settings"></i> 2. Subject & Exam Management</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Manage Courses</h4>
+                    <p>Create and organize the school curriculum. Add subjects like Mathematics, English, or Sciences to the global subject bank.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Class-Based Exams</h4>
+                    <p>Exams are organized by class (JSS3, SS1, etc.). Admin can add new exams, set time limits, and define how many questions should be displayed.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Question Bank</h4>
+                    <p>Add Multiple Choice Questions (MCQs) for each exam. Specify the options and the correct answer for automated grading.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h3><i data-lucide="users"></i> 3. Student Registration</h3>
+            <p>Manage the entire student body with ease. Students are grouped by their class levels, making it simple to track results by academic year.</p>
+        </div>
+    </section>
+
+    <!-- Section 3: Student Portal -->
+    <section id="student">
+        <h2 class="section-title"><i data-lucide="user"></i> The Student Experience</h2>
+        
+        <div class="content-block">
+            <h3><i data-lucide="home"></i> 1. Personalized Home</h3>
+            <p>When a student logs in, they see a dashboard tailored to their class:</p>
+            <ul class="steps">
+                <li data-step="1"><b>Available Exams:</b> A list of all exams currently open for their class.</li>
+                <li data-step="2"><b>Subjects:</b> A summary of the subjects they are enrolled in.</li>
+                <li data-step="3"><b>Status Tracking:</b> See how many exams they have completed and their current position.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h3><i data-lucide="rocket"></i> 2. The CBT Environment</h3>
+            <p>The examination interface is designed for focus and speed:</p>
+            <ul class="steps">
+                <li data-step="1"><b>Timer:</b> A live countdown timer keeps students aware of the remaining time.</li>
+                <li data-step="2"><b>Navigation:</b> Easy-to-use interface to cycle through questions.</li>
+                <li data-step="3"><b>Auto-Submit:</b> Submissions are processed immediately upon completion, ensuring data integrity.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 4: Results & Monitoring -->
+    <section id="results" style="background: rgba(255,255,255,0.02);">
+        <h2 class="section-title"><i data-lucide="award"></i> Results & Performance Tracking</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>Instant Grading</h4>
+                <p>As soon as a student clicks "Submit", the system calculates their score based on the correct answers stored in the database.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Exam Attendance</h4>
+                <p>Admin can view exactly who took which exam, what time they finished, and their final percentage score.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Comparative Rankings</h4>
+                <p>The system ranks students by their performance, helping teachers identify top performers and students who need extra support.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Generated for My Learning CBT Presentation &copy; 2026</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

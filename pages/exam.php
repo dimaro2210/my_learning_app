@@ -117,34 +117,46 @@
                             <div class="row pl-4">
                                 <div class="col-md-6">
                                     <div class="form-group" style="padding: 10px 14px; border-radius: 8px; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.background='rgba(124,58,237,0.05)'" onmouseout="this.style.background='transparent'">
-                                        <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch1']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch1" required >
-                                        <label class="form-check-label" for="q<?php echo $questId; ?>_ch1" style="cursor:pointer; padding-left: 6px;">
-                                            <?php echo $selQuestRow['exam_ch1']; ?>
-                                        </label>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="font-weight: 700; color: #7c3aed; margin-right: 12px; min-width: 20px;">A.</span>
+                                            <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch1']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch1" required style="margin-top: 0; position: relative;">
+                                            <label class="form-check-label" for="q<?php echo $questId; ?>_ch1" style="cursor:pointer; padding-left: 10px; width: 100%;">
+                                                <?php echo $selQuestRow['exam_ch1']; ?>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group" style="padding: 10px 14px; border-radius: 8px; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.background='rgba(124,58,237,0.05)'" onmouseout="this.style.background='transparent'">
-                                        <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch2']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch2" required >
-                                        <label class="form-check-label" for="q<?php echo $questId; ?>_ch2" style="cursor:pointer; padding-left: 6px;">
-                                            <?php echo $selQuestRow['exam_ch2']; ?>
-                                        </label>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="font-weight: 700; color: #7c3aed; margin-right: 12px; min-width: 20px;">B.</span>
+                                            <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch2']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch2" required style="margin-top: 0; position: relative;">
+                                            <label class="form-check-label" for="q<?php echo $questId; ?>_ch2" style="cursor:pointer; padding-left: 10px; width: 100%;">
+                                                <?php echo $selQuestRow['exam_ch2']; ?>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group" style="padding: 10px 14px; border-radius: 8px; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.background='rgba(124,58,237,0.05)'" onmouseout="this.style.background='transparent'">
-                                        <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch3']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch3" required >
-                                        <label class="form-check-label" for="q<?php echo $questId; ?>_ch3" style="cursor:pointer; padding-left: 6px;">
-                                            <?php echo $selQuestRow['exam_ch3']; ?>
-                                        </label>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="font-weight: 700; color: #7c3aed; margin-right: 12px; min-width: 20px;">C.</span>
+                                            <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch3']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch3" required style="margin-top: 0; position: relative;">
+                                            <label class="form-check-label" for="q<?php echo $questId; ?>_ch3" style="cursor:pointer; padding-left: 10px; width: 100%;">
+                                                <?php echo $selQuestRow['exam_ch3']; ?>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group" style="padding: 10px 14px; border-radius: 8px; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.background='rgba(124,58,237,0.05)'" onmouseout="this.style.background='transparent'">
-                                        <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch4']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch4" required >
-                                        <label class="form-check-label" for="q<?php echo $questId; ?>_ch4" style="cursor:pointer; padding-left: 6px;">
-                                            <?php echo $selQuestRow['exam_ch4']; ?>
-                                        </label>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="font-weight: 700; color: #7c3aed; margin-right: 12px; min-width: 20px;">D.</span>
+                                            <input name="answer[<?php echo $questId; ?>][correct]" value="<?php echo $selQuestRow['exam_ch4']; ?>" class="form-check-input" type="radio" id="q<?php echo $questId; ?>_ch4" required style="margin-top: 0; position: relative;">
+                                            <label class="form-check-label" for="q<?php echo $questId; ?>_ch4" style="cursor:pointer; padding-left: 10px; width: 100%;">
+                                                <?php echo $selQuestRow['exam_ch4']; ?>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
